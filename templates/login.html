@@ -1,0 +1,58 @@
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <img src="{{ url_for('static', filename='encirclelogo.jpg') }}" alt="Logo" class="logo">
+        <h1>Task Updater</h1>
+        <h2>Login</h2>
+        <form method="POST" action="/">
+            <div class="form-group">
+                <button type="button" class="role-btn" id="employee-btn">Login as Employee</button>
+                <button type="button" class="role-btn" id="admin-btn">Login as Admin</button>
+            </div>
+            <input type="hidden" id="role" name="role" value="">
+            <div id="admin-fields" class="admin-fields">
+                <div class="form-group">
+                    <label for="username">Admin Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Enter username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Admin Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="login-submit">Submit</button>
+            </div>
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+        </form>
+    </div>
+
+    <script>
+        const adminBtn = document.getElementById('admin-btn');
+        const employeeBtn = document.getElementById('employee-btn');
+        const adminFields = document.getElementById('admin-fields');
+        const roleInput = document.getElementById('role');
+        
+        adminBtn.addEventListener('click', function() {
+            adminFields.style.display = 'block';
+            employeeBtn.style.display = 'none';
+            adminBtn.style.display = 'none';
+            roleInput.value = 'admin'; 
+        });
+        
+        employeeBtn.addEventListener('click', function() {
+            roleInput.value = 'employee'; 
+            document.querySelector('form').submit();  // Submit the form
+        });
+    </script>
+</body>
+</html>
+

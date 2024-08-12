@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Input</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container task-input-page">
+        <h1>Task Input</h1>
+        <form method="POST" action="{{ url_for('task_input', emp_id=employee.employee_id) }}">
+            <label for="task_description">Task Description:</label>
+            <input type="text" id="task_description" name="task_description" placeholder="Enter task description" required>
+            <label for="product">Product:</label>
+            <select id="product" name="product">
+                <option value="MLC V2">MLC V2</option>
+                <option value="MLC V3">MLC V3</option>
+                <option value="MDC">MDC</option>
+                <option value="EDC">EDC</option>
+                <option value="Others">Others</option>
+            </select>
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+                <option value="Need Clarity">Need Clarity</option>
+            </select>
+            <label for="remarks">Remarks:</label>
+            <input type="text" id="remarks" name="remarks" placeholder="Enter remarks">
+            <label for="clickup_matis_id">Clickup/Matis ID:</label>
+            <input type="text" id="clickup_matis_id" name="clickup_matis_id" placeholder="Enter Clickup/Matis ID">
+            
+            <button type="submit" name="submit" value="Close Day">Close Day</button>
+            <button type="submit" name="submit" value="Next Task">Next Task</button>
+        </form>
+    </div>
+</body>
+</html>

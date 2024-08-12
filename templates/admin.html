@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container admin-page">
+        <h1>Admin Page</h1>
+        <form method="POST" action="{{ url_for('admin') }}">    
+            <label for="employee_id">Employee ID:</label>
+            <input type="text" id="employee_id" name="employee_id" placeholder="Enter employee ID" required>
+            <label for="date_from">Date From:</label>
+            <!-- date to,from added -->
+            <input type="date" id="date_from" name="date_from" required>
+            <label for="date_to">Date To:</label>
+            <input type="date" id="date_to" name="date_to" required>
+            <button type="submit">SEND</button>
+        </form>
+    </div>
+</body>
+</html>
